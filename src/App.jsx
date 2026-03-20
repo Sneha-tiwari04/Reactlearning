@@ -11,7 +11,7 @@ return(
 
 
 <Routes>
-    <Route path = "/" element = { <Navbar /> }/> 
+    {/* <Route path = "/" element = { <Navbar /> }/>  */}
     <Route path="/" element={<Home />} />
     <Route path="/" element={<Sign/>}/>
     <Route path="/Login" element={<Login/>}/>
