@@ -8,17 +8,17 @@ import Login from "./Login"
 function App(){
 
 return(
-
-
+<>
+ <Navbar />
 <Routes>
-    {/* <Route path = "/" element = { <Navbar /> }/>  */}
-    <Route path="/" element={<Home />} />
+     
+    <Route  index element={<Home />} />
     <Route path="/" element={<Sign/>}/>
     <Route path="/Login" element={<Login/>}/>
     
 
 </Routes>
-
+</>
 )
 
 }
