@@ -12,7 +12,7 @@ return(
  <Navbar />
 <Routes>
      
-    <Route  index element={<Home />} />
+    <Route index element={<Home />} />
     <Route path="/" element={<Sign/>}/>
     <Route path="/Login" element={<Login/>}/>
     

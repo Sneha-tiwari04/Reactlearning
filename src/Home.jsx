@@ -1,150 +1,140 @@
-import mac from "./assets/mac.png";
-import iphone from "./assets/iphone.png";
-import ipad from "./assets/ipad.png";
-import watch from "./assets/watch.png";
-import airpods from "./assets/Airpods.png";
-// import mac from "./assets/mac.png";
-
+import { useState } from "react";
 
 function Home() {
 
-  const products = [
-    { name: "Mac", img: mac },
-    { name: "iPhone", img: iphone },
-    { name: "iPad", img: ipad },
-    { name: "Watch", img: watch },
-    { name: "AirPods", img: airpods }
+  // 🔥 DATA (sab yahi pe)
+  const categories = [
+    { name: "Mac", img: "/assets/mac.png" },
+    { name: "iPhone", img: "/assets/iphone.png" },
+    { name: "iPad", img: "/assets/ipad.png" },
+    { name: "Watch", img: "/assets/watch.png" },
+    { name: "AirPods", img: "/assets/airpods.png" },
+  ];
+
+  const latestProducts = [
+    {
+      id: 1,
+      title: "iPhone 17 Pro",
+      subtitle: "All out Pro.",
+      price: "From ₹134900",
+      img: "/assets/iphone17.png",
+      dark: true
+    },
+    {
+      id: 2,
+      title: "MacBook Neo",
+      subtitle: "The magic of Mac at a surprising price.",
+      price: "From ₹69900",
+      img: "/assets/macneo.png"
+    },
+    {
+      id: 3,
+      title: "iPhone 17e",
+      subtitle: "Feature stacked.",
+      price: "From ₹64900",
+      img: "/assets/iphone17e.png"
+    }
+  ];
+
+  const infoCards = [
+    {
+      title: "No Cost EMI",
+      desc: "Plus Instant Cashback"
+    },
+    {
+      title: "Exchange your smartphone",
+      desc: "Get credit towards a new one."
+    },
+    {
+      title: "Customise your Mac",
+      desc: "Make it yours"
+    },
+    {
+      title: "Free Engraving",
+      desc: "On selected products"
+    }
   ];
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div>
 
-      {/* HERO SECTION */}
-      <div className="flex justify-between items-center px-16 py-20">
-        <h1 className="text-6xl font-bold">Store.</h1>
-
-        <div className="text-right">
-          <p className="text-2xl font-semibold">
-            The best way to buy the products you love.
-          </p>
-          <p className="text-blue-600 mt-2 cursor-pointer">
-            Connect with a Specialist →
-          </p>
-        </div>
+      {/* 🔥 HERO */}
+      <div className="px-10 py-16">
+        <h1 className="text-6xl font-bold">Store</h1>
       </div>
 
-      {/* PRODUCT ROW */}
-      <div className="flex justify-center gap-10 py-6 overflow-x-auto">
-        {products.map((item, i) => (
-          <div key={i} className="text-center cursor-pointer">
-            <img src={item.img} alt="" className="h-16 mx-auto" />
-            <p className="mt-2">{item.name}</p>
+      {/* 🔥 CATEGORY BAR */}
+      <div className="flex gap-10 overflow-x-auto px-10 py-6">
+        {categories.map((cat, i) => (
+          <div key={i} className="text-center min-w-[100px]">
+            <img src={cat.img} className="h-16 mx-auto" />
+            <p className="mt-2">{cat.name}</p>
           </div>
         ))}
       </div>
 
-      {/* LATEST SECTION */}
-      <div className="px-16 py-10">
-        <h2 className="text-3xl font-bold">
-          The latest.{" "}
-          <span className="text-gray-500">
-            Take a look at what’s new right now.
-          </span>
+      {/* 🔥 LATEST SECTION */}
+      <div className="px-10 mt-10">
+        <h2 className="text-3xl font-semibold">
+          The latest. <span className="text-gray-500">Take a look at what’s new.</span>
         </h2>
 
-        <div className="flex gap-6 mt-8 overflow-x-auto">
-
-          {/* CARD 1 */}
-          <div className="min-w-[300px] bg-black text-white rounded-3xl p-6">
-            <h3 className="text-2xl font-semibold">iPhone 17 Pro</h3>
-            <p className="mt-2">All out Pro.</p>
-            <img src={ipad} alt="" className="mt-6 rounded-xl" />
-          </div>
-
-          {/* CARD 2 */}
-          <div className="min-w-[300px] bg-white rounded-3xl p-6 shadow">
-            <p className="text-orange-500 text-sm">NEW</p>
-            <h3 className="text-2xl font-semibold">MacBook Neo</h3>
-            <p className="mt-2 text-gray-600">
-              The magic of Mac at a surprising price.
-            </p>
-            <img src={mac} alt="" className="mt-6 rounded-xl" />
-          </div>
-
-          {/* CARD 3 */}
-          <div className="min-w-[300px] bg-white rounded-3xl p-6 shadow">
-            <p className="text-orange-500 text-sm">NEW</p>
-            <h3 className="text-2xl font-semibold">iPhone 17e</h3>
-            <p className="mt-2 text-gray-600">
-              Feature stacked. Value packed.
-            </p>
-            <img src={iphone} alt="" className="mt-6 rounded-xl" />
-          </div>
-
+        <div className="grid grid-cols-3 gap-6 mt-6">
+          {latestProducts.map((item) => (
+            <div
+              key={item.id}
+              className={`rounded-3xl p-6 ${item.dark ? "bg-black text-white" : "bg-gray-100"}`}
+            >
+              <h2 className="text-xl font-semibold">{item.title}</h2>
+              <p>{item.subtitle}</p>
+              <p className="mt-2">{item.price}</p>
+              <img src={item.img} className="mt-4" />
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* FEATURES SECTION */}
-      <div className="px-16 py-10">
-        <h2 className="text-3xl font-bold">
+      {/* 🔥 STORE DIFFERENCE */}
+      <div className="px-10 mt-16">
+        <h2 className="text-3xl font-semibold">
           The Apple Store difference.
-          <span className="text-gray-500">
-            {" "}Even more reasons to shop with us.
-          </span>
+          <span className="text-gray-500"> Even more reasons to shop with us.</span>
         </h2>
 
-        <div className="grid grid-cols-4 gap-6 mt-8">
-
-          <div className="bg-white p-6 rounded-2xl shadow text-center">
-            <p className="text-xl font-semibold">
-              No Cost EMI. Plus Instant Cashback.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl shadow text-center">
-            <p className="text-xl font-semibold">
-              Exchange your smartphone
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl shadow text-center">
-            <p className="text-xl font-semibold">
-              Customise your Mac
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl shadow text-center">
-            <p className="text-xl font-semibold">
-              Free Engraving
-            </p>
-          </div>
-
+        <div className="grid grid-cols-4 gap-6 mt-6">
+          {infoCards.map((card, i) => (
+            <div key={i} className="bg-gray-100 p-6 rounded-3xl">
+              <h3 className="text-lg font-semibold">{card.title}</h3>
+              <p className="text-gray-500 mt-2">{card.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* HELP SECTION */}
-      <div className="px-16 py-10">
-        <h2 className="text-3xl font-bold">
+      {/* 🔥 HELP SECTION */}
+      <div className="px-10 mt-16 mb-20">
+        <h2 className="text-3xl font-semibold">
           Help is here.
-          <span className="text-gray-500">
-            {" "}Whenever and however you need it.
-          </span>
+          <span className="text-gray-500"> Whenever and however you need it.</span>
         </h2>
 
-        <div className="grid grid-cols-2 gap-6 mt-8">
+        <div className="grid grid-cols-3 gap-6 mt-6">
 
-          <div className="bg-white p-8 rounded-2xl shadow">
+          <div className="bg-gray-100 p-6 rounded-3xl">
             <h3 className="text-xl font-semibold">
               Shop with a Specialist over video.
             </h3>
-            <p className="text-gray-600 mt-2">
-              Choose your next device in a guided session.
-            </p>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl shadow">
+          <div className="bg-gray-100 p-6 rounded-3xl">
             <h3 className="text-xl font-semibold">
               Shop one on one with a Specialist online.
+            </h3>
+          </div>
+
+          <div className="bg-gray-100 p-6 rounded-3xl">
+            <h3 className="text-xl font-semibold">
+              Explore Apple in store.
             </h3>
           </div>
 
