@@ -5,7 +5,7 @@ import Admin from "./Components/Admin";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import Home from "./Components/Home";
-import Counter from "./Components/Counter" ;
+import Counter from "./Components/Counter";
 
 
 
