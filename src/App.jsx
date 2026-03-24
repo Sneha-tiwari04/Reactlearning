@@ -5,6 +5,9 @@ import Admin from "./Components/Admin";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import Home from "./Components/Home";
+import Counter from "./Components/Counter";
+
+
 
 
 
@@ -22,6 +25,8 @@ function App() {
         <Route path="/Login" element={<Login/>} />
         <Route path="/Signup" element={<Signup/>} />
         <Route path="/Admin" element={<Admin/>} />
+        <Route path="/Counter" element={<Counter/>} />
+
 
         
 

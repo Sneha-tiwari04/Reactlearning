@@ -9,7 +9,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // 1. LocalStorage se users ki list nikalna
+   
     const allUsers = JSON.parse(localStorage.getItem("allUsers")) || [];
 
     // 2. Match dhoondhna
@@ -17,8 +17,8 @@ const Login = () => {
 
     if (user) {
       alert("Welcome back, " + user.name);
-      localStorage.setItem("isLoggedIn", "true"); // User login ho gaya
-      localStorage.setItem("currentUser", JSON.stringify(user)); // Current user ki info
+      localStorage.setItem("isLoggedIn", "true"); 
+      localStorage.setItem("currentUser", JSON.stringify(user)); 
       navigate("/"); // Home page par bhej dena
     } else {
       alert("Invalid Email or Password! Signup karein agar account nahi hai.");
@@ -50,4 +50,4 @@ const Login = () => {
   );
 };
 
-export default Login; // Export zaroori hai
+export default Login; 
