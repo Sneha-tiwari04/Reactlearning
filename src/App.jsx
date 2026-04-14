@@ -17,7 +17,7 @@ import Counter from "./Components/Counter" ;
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar/>
 
       <Routes>
         <Route path="/" element={<Home/>} />
