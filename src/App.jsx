@@ -16,7 +16,7 @@ import Counter from "./Components/Counter" ;
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <Navbar/>
 
       <Routes>
